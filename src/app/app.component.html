@@ -1,0 +1,94 @@
+<main class="calculator-container">
+  <h1>Calculadora de IV</h1>
+
+  <section class="sliders">
+    <div class="slider-item">
+      <label for="ataque-slider">
+        Ataque:
+        <strong>{{ ataque() }}</strong>
+      </label>
+
+      <mat-slider
+        min="0"
+        max="15"
+        step="1"
+        discrete
+        showTickMarks
+      >
+        <input
+          matSliderThumb
+          [(ngModel)]="ataque"
+          id="ataque-slider"
+        />
+      </mat-slider>
+    </div>
+
+    <div class="slider-item">
+      <label for="defesa-slider">
+        Defesa:
+        <strong>{{ defesa() }}</strong>
+      </label>
+
+      <mat-slider
+        min="0"
+        max="15"
+        step="1"
+        discrete
+        showTickMarks
+      >
+        <input
+          matSliderThumb
+          [(ngModel)]="defesa"
+          id="defesa-slider"
+        />
+      </mat-slider>
+    </div>
+
+    <div class="slider-item">
+      <label for="ps-slider">
+        PS:
+        <strong>{{ ps() }}</strong>
+      </label>
+
+      <mat-slider
+        min="0"
+        max="15"
+        step="1"
+        discrete
+        showTickMarks
+      >
+        <input
+          matSliderThumb
+          [(ngModel)]="ps"
+          id="ps-slider"
+        />
+      </mat-slider>
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="result-section">
+    <mat-form-field
+      appearance="outline"
+      class="result-input"
+    >
+      <mat-label>Resultado do IV</mat-label>
+
+      <input
+        matInput
+        [value]="ivResultado() + '%'"
+        readonly
+      />
+    </mat-form-field>
+
+    <button
+      mat-fab
+      color="primary"
+      [cdkCopyToClipboard]="ivResultado().toString()"
+      aria-label="Copiar resultado"
+    >
+      <mat-icon>content_copy</mat-icon>
+    </button>
+  </section>
+</main>
