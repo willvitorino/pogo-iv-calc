@@ -47,7 +47,8 @@
                 }
               ],
               "outputHashing": "all",
-              "serviceWorker": "ngsw-config.json"
+              "serviceWorker": "ngsw-config.json",
+              "baseHref": "/pogo-iv-calc/"
             },
             "development": {
               "optimization": false,
