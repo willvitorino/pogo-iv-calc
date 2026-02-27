@@ -22,9 +22,9 @@ import { ClipboardModule } from '@angular/cdk/clipboard'
 })
 export class AppComponent {
   // Inputs usando a API model() do Angular 21 (0 a 15)
-  ataque = model(15)
-  defesa = model(15)
-  ps = model(15)
+  ataque = model(0)
+  defesa = model(0)
+  ps = model(0)
 
   // Cálculo reativo: Math.round(((ataque+defesa+ps)/45)*100)
   ivResultado = computed(() => {
