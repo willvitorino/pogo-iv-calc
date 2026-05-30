@@ -1,7 +1,7 @@
 :host {
   // Tokens customizáveis — sobrescreva no pai se quiser outro laranja/tamanho.
   --slider-active: #f5821f;
-  --slider-inactive: #e0e0e0;
+  --slider-inactive: light-dark(#ebefed, #1c2020);
   --slider-gap: 6px;
   --slider-height: 18px;
   --slider-radius: 9px;
