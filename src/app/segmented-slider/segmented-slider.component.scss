@@ -1,0 +1,80 @@
+:host {
+  // Tokens customizáveis — sobrescreva no pai se quiser outro laranja/tamanho.
+  --slider-active: #f5821f;
+  --slider-inactive: #e0e0e0;
+  --slider-gap: 6px;
+  --slider-height: 18px;
+  --slider-radius: 9px;
+
+  display: block;
+  outline: none;
+}
+
+.slider-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+
+  // Labels em laranja, conforme o design.
+  color: var(--slider-active);
+  font-weight: 700;
+}
+
+.slider-value {
+  font-size: 1.15em;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  display: flex;
+  gap: var(--slider-gap);
+  height: var(--slider-height);
+  cursor: pointer;
+
+  // Essenciais para o arraste por toque: evita scroll/seleção durante o gesto.
+  touch-action: none;
+  user-select: none;
+}
+
+.segment {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--slider-inactive);
+
+  // Arredonda só as bordas externas: o primeiro segmento só à esquerda,
+  // o último só à direita e os do meio ficam retos.
+  border-radius: 0;
+
+  &:first-child {
+    border-top-left-radius: var(--slider-radius);
+    border-bottom-left-radius: var(--slider-radius);
+  }
+
+  &:last-child {
+    border-top-right-radius: var(--slider-radius);
+    border-bottom-right-radius: var(--slider-radius);
+  }
+}
+
+.segment-fill {
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background-color: var(--slider-active);
+  border-radius: inherit;
+  transition: width 0.08s linear;
+}
+
+// Durante o arraste a barra deve seguir o dedo sem "atraso" da animação.
+:host(.dragging) .segment-fill {
+  transition: none;
+}
+
+// Foco visível por teclado (acessibilidade).
+:host(:focus-visible) .track {
+  outline: 2px solid var(--slider-active);
+  outline-offset: 3px;
+  border-radius: var(--slider-radius);
+}

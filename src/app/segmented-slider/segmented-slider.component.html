@@ -1,0 +1,19 @@
+<div class="slider-header">
+  <span class="slider-label">{{ label() }}:</span>
+  <span class="slider-value">{{ value() }}</span>
+</div>
+
+<div
+  #track
+  class="track"
+  (pointerdown)="onPointerDown($event)"
+>
+  @for (fill of segmentFills(); track $index) {
+    <div class="segment">
+      <div
+        class="segment-fill"
+        [style.width.%]="fill"
+      ></div>
+    </div>
+  }
+</div>

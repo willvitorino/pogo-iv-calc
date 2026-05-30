@@ -2,68 +2,20 @@
   <h1>Calculadora de IV</h1>
 
   <section class="sliders">
-    <div class="slider-item">
-      <label for="ataque-slider">
-        Ataque:
-        <strong>{{ ataque() }}</strong>
-      </label>
+    <app-segmented-slider
+      label="Ataque"
+      [(value)]="ataque"
+    />
 
-      <mat-slider
-        min="0"
-        max="15"
-        step="1"
-        discrete
-        showTickMarks
-      >
-        <input
-          matSliderThumb
-          [(ngModel)]="ataque"
-          id="ataque-slider"
-        />
-      </mat-slider>
-    </div>
+    <app-segmented-slider
+      label="Defesa"
+      [(value)]="defesa"
+    />
 
-    <div class="slider-item">
-      <label for="defesa-slider">
-        Defesa:
-        <strong>{{ defesa() }}</strong>
-      </label>
-
-      <mat-slider
-        min="0"
-        max="15"
-        step="1"
-        discrete
-        showTickMarks
-      >
-        <input
-          matSliderThumb
-          [(ngModel)]="defesa"
-          id="defesa-slider"
-        />
-      </mat-slider>
-    </div>
-
-    <div class="slider-item">
-      <label for="ps-slider">
-        PS:
-        <strong>{{ ps() }}</strong>
-      </label>
-
-      <mat-slider
-        min="0"
-        max="15"
-        step="1"
-        discrete
-        showTickMarks
-      >
-        <input
-          matSliderThumb
-          [(ngModel)]="ps"
-          id="ps-slider"
-        />
-      </mat-slider>
-    </div>
+    <app-segmented-slider
+      label="PS"
+      [(value)]="ps"
+    />
   </section>
 
   <hr />
