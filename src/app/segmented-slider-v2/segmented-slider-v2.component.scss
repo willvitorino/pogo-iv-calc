@@ -1,0 +1,81 @@
+:host {
+  // Tokens customizáveis — tons nativos do tema Material (M3):
+  // laranja do tema (tertiary) a 70% para o selecionado e tom de
+  // superfície para o não selecionado (equivalente ao bg-grey-200).
+  --color-orange-400: oklch(.75 .183 55.934);
+  --slider-active: color-mix(in oklab, var(--color-orange-400) 70%, transparent);
+  // --slider-active: color-mix(in srgb, var(--mat-sys-tertiary) 70%, transparent);
+  --slider-hover: color-mix(in oklab, var(--color-orange-400) 40%, transparent);
+  --slider-inactive: var(--mat-sys-surface-container-high);
+  --slider-gap-micro: 1px;
+  --slider-gap-group: 5px;
+  --slider-height: 16px;
+
+  display: block;
+  outline: none;
+}
+
+.slider-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+
+  color: var(--slider-active);
+  font-weight: 700;
+}
+
+.slider-value {
+  font-size: 1.15em;
+  font-variant-numeric: tabular-nums;
+}
+
+.track {
+  display: flex;
+  height: var(--slider-height);
+  gap: var(--slider-gap-group);
+  cursor: pointer;
+  user-select: none;
+}
+
+.segment {
+  display: flex;
+  flex: 1;
+  height: var(--slider-height);
+  gap: var(--slider-gap-micro);
+}
+
+.micro-segment {
+  flex-grow: 1;
+  background-color: var(--slider-inactive);
+  cursor: pointer;
+  transition: background-color 0.08s linear;
+
+  &.active {
+    background-color: var(--slider-active);
+  }
+
+  &.hovered {
+    background-color: var(--slider-hover);
+  }
+
+  // O 1º micro-segmento da track arredonda à esquerda (sempre);
+  // o último à direita (sempre); os demais só quando são o último
+  // selecionado — os do meio (ex.: 6 e 11) permanecem retos.
+  &.round-left {
+    border-top-left-radius: 50rem;
+    border-bottom-left-radius: 50rem;
+  }
+
+  &.round-right {
+    border-top-right-radius: 50rem;
+    border-bottom-right-radius: 50rem;
+  }
+}
+
+// Foco visível por teclado (acessibilidade).
+:host(:focus-visible) .track {
+  outline: 2px solid var(--slider-active);
+  outline-offset: 3px;
+  border-radius: 9px;
+}

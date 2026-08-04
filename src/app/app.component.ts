@@ -3,13 +3,13 @@ import { MatInputModule } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { ClipboardModule } from '@angular/cdk/clipboard'
-import { SegmentedSlider } from './segmented-slider/segmented-slider.component'
+import { SegmentedSliderV2 } from './segmented-slider-v2/segmented-slider-v2.component'
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    SegmentedSlider,
+    SegmentedSliderV2,
     MatInputModule,
     MatButtonModule,
     MatIconModule,

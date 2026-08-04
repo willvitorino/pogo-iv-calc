@@ -1,0 +1,28 @@
+<div class="slider-header">
+  <span class="slider-label">{{ label() }}:</span>
+  <span class="slider-value">{{ value() }}</span>
+</div>
+
+<div
+  class="track"
+  (pointerleave)="onLeave()"
+>
+  @for (segment of segmentsList(); track $index) {
+    <div class="segment">
+      @for (micro of segment; track micro.emitValue) {
+        <div
+          class="micro-segment"
+          tabindex="-1"
+          [class.active]="micro.state === 'active'"
+          [class.hovered]="micro.state === 'hover'"
+          [class.inactive]="micro.state === 'inactive'"
+          [class.round-left]="micro.roundLeft"
+          [class.round-right]="micro.roundRight"
+          [title]="'Valor ' + micro.emitValue"
+          (pointerenter)="onEnter(micro.emitValue)"
+          (pointerup)="onSelect(micro.emitValue)"
+        ></div>
+      }
+    </div>
+  }
+</div>

@@ -10,6 +10,8 @@ import {
 } from '@angular/core'
 
 /**
+ * @deprecated Use SegmentedSliderV2 (`app-segmented-slider-v2`).
+ *
  * Slider segmentado e acessível (0..max) desenhado como barras grossas
  * divididas em N segmentos iguais, sem "thumb" visível.
  *
